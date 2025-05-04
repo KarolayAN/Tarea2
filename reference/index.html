@@ -441,114 +441,32 @@
         <p>Calcula la integral de <code>f</code> en el intervalo [a, b] usando cuadratura Gauss-Legendre.</p>
 
 
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td>
-                <code>f</code>
-            </td>
-            <td>
-                  <code><span title="function">function</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Función a integrar.</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>a</code>
-            </td>
-            <td>
-                  <code><span title="float">float</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Límite inferior.</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>b</code>
-            </td>
-            <td>
-                  <code><span title="float">float</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Límite superior.</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>N</code>
-            </td>
-            <td>
-                  <code><span title="int">int</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Número de puntos.</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-      </tbody>
-    </table>
+<details class="parametros" open>
+  <summary>Parametros</summary>
+  <p>f (function): Función a integrar.
+a (float): Límite inferior.
+b (float): Límite superior.
+N (int): Número de puntos.</p>
+</details>
 
+<details class="resultados" open>
+  <summary>Resultados</summary>
+  <p>float: Resultado de la integral.</p>
+</details>
 
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
-      <thead>
-        <tr>
-<th>Name</th>          <th>Type</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-<td><code>float</code></td>            <td>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Resultado de la integral.</p>
-              </div>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
-
-<p><span class="doc-section-title">Examples:</span></p>
-    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">gauss_integrate</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="go">1.25...</span>
-</code></pre></div>
-
+<details class="ejemplos" open>
+  <summary>Ejemplos</summary>
+  <blockquote>
+<blockquote>
+<blockquote>
+<p>import numpy as np
+f = lambda x: np.sin(x**2)
+gauss_integrate(f, 0, np.pi, 10)
+1.25...</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</details>
 
             <details class="quote">
               <summary>Source code in <code>cuadrature/cuadrature.py</code></summary>
@@ -576,16 +494,16 @@
 <span class="normal">68</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">gauss_integrate</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Calcula la integral de `f` en el intervalo [a, b] usando cuadratura Gauss-Legendre.</span>
 
-<span class="sd">    Args:</span>
+<span class="sd">    Parametros:</span>
 <span class="sd">        f (function): Función a integrar.</span>
 <span class="sd">        a (float): Límite inferior.</span>
 <span class="sd">        b (float): Límite superior.</span>
 <span class="sd">        N (int): Número de puntos.</span>
 
-<span class="sd">    Returns:</span>
+<span class="sd">    Resultados:</span>
 <span class="sd">        float: Resultado de la integral.</span>
 
-<span class="sd">    Examples:</span>
+<span class="sd">    Ejemplos:</span>
 <span class="sd">        &gt;&gt;&gt; import numpy as np</span>
 <span class="sd">        &gt;&gt;&gt; f = lambda x: np.sin(x**2)</span>
 <span class="sd">        &gt;&gt;&gt; gauss_integrate(f, 0, np.pi, 10)</span>
@@ -615,65 +533,28 @@
         <p>Calcula los puntos y pesos de la cuadratura Gauss-Legendre.</p>
 
 
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td>
-                <code>N</code>
-            </td>
-            <td>
-                  <code><span title="int">int</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Número de puntos.</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-      </tbody>
-    </table>
+<details class="parametros" open>
+  <summary>Parametros</summary>
+  <p>N (int): Número de puntos.</p>
+</details>
 
+<details class="resultados" open>
+  <summary>Resultados</summary>
+  <p>tuple: Dos arreglos de NumPy: puntos x y pesos w.</p>
+</details>
 
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
-      <thead>
-        <tr>
-<th>Name</th>          <th>Type</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-<td><code>tuple</code></td>            <td>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Dos arreglos de NumPy: puntos x y pesos w.</p>
-              </div>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
-
-<p><span class="doc-section-title">Examples:</span></p>
-    <div class="highlight"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">gaussxw</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="go">3</span>
-</code></pre></div>
-
+<details class="ejemplos" open>
+  <summary>Ejemplos</summary>
+  <blockquote>
+<blockquote>
+<blockquote>
+<p>x, w = gaussxw(3)
+len(x)
+3</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</details>
 
             <details class="quote">
               <summary>Source code in <code>cuadrature/cuadrature.py</code></summary>
@@ -707,13 +588,13 @@
 <span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">gaussxw</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Calcula los puntos y pesos de la cuadratura Gauss-Legendre.</span>
 
-<span class="sd">    Args:</span>
+<span class="sd">    Parametros:</span>
 <span class="sd">        N (int): Número de puntos.</span>
 
-<span class="sd">    Returns:</span>
+<span class="sd">    Resultados:</span>
 <span class="sd">        tuple: Dos arreglos de NumPy: puntos x y pesos w.</span>
 
-<span class="sd">    Examples:</span>
+<span class="sd">    Ejemplos:</span>
 <span class="sd">        &gt;&gt;&gt; x, w = gaussxw(3)</span>
 <span class="sd">        &gt;&gt;&gt; len(x)</span>
 <span class="sd">        3</span>
@@ -752,90 +633,17 @@
         <p>Transforma los puntos de [-1,1] al intervalo [a,b].</p>
 
 
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td>
-                <code>x</code>
-            </td>
-            <td>
-                  <code><span title="ndarray">ndarray</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Puntos originales.</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>a</code>
-            </td>
-            <td>
-                  <code><span title="float">float</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Límite inferior.</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>b</code>
-            </td>
-            <td>
-                  <code><span title="float">float</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Límite superior.</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-      </tbody>
-    </table>
+<details class="parametros" open>
+  <summary>Parametros</summary>
+  <p>x (ndarray): Puntos originales.
+a (float): Límite inferior.
+b (float): Límite superior.</p>
+</details>
 
-
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
-      <thead>
-        <tr>
-<th>Name</th>          <th>Type</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-<td><code>ndarray</code></td>            <td>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Puntos transformados.</p>
-              </div>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
+<details class="resultados" open>
+  <summary>Resultados</summary>
+  <p>ndarray: Puntos transformados.</p>
+</details>
 
             <details class="quote">
               <summary>Source code in <code>cuadrature/cuadrature.py</code></summary>
@@ -853,12 +661,12 @@
 <span class="normal">45</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">transform</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Transforma los puntos de [-1,1] al intervalo [a,b].</span>
 
-<span class="sd">    Args:</span>
+<span class="sd">    Parametros:</span>
 <span class="sd">        x (ndarray): Puntos originales.</span>
 <span class="sd">        a (float): Límite inferior.</span>
 <span class="sd">        b (float): Límite superior.</span>
 
-<span class="sd">    Returns:</span>
+<span class="sd">    Resultados:</span>
 <span class="sd">        ndarray: Puntos transformados.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">b</span> <span class="o">+</span> <span class="n">a</span><span class="p">)</span>

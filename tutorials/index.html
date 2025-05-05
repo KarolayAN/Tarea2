@@ -293,25 +293,29 @@
 <p>A continuación se muestra un ejemplo de cómo usar la implementación de la cuadratura Gaussiana para evaluar la integral de <span class="arithmatex">\( \sin(x^2) \)</span> en el intervalo <span class="arithmatex">\( [0, \pi] \)</span>:</p>
 <div class="highlight"><pre><span></span><code>import numpy as np
 
-# Función a integrar: sin(x^2)
-def integrand(x):
-    return np.sin(x**2)
-
-# Función de integración utilizando cuadratura Gaussiana
-def gauss_integrate(func, a, b, N):
+# Generación de puntos de cuadratura Gauss-Legendre
+def gaussxw(N):
     x, w = np.polynomial.legendre.leggauss(N)
-    x_scaled = 0.5 * (b - a) * (x + 1) + a
-    integral = 0.5 * (b - a) * np.sum(w * func(x_scaled))
-    return integral
+    return x, w
 
-# Intervalo de integración
-a = 0
-b = np.pi
+# Transformación de los puntos de [-1, 1] a [a, b]
+def gaussxwab(a, b, x, w):
+    xp = 0.5 * (b - a) * x + 0.5 * (b + a)
+    wp = 0.5 * (b - a) * w
+    return xp, wp
 
-# Evaluación de la integral con N = 10 puntos
-N = 10
-result = gauss_integrate(integrand, a, b, N)
-print(&quot;Resultado de la integral:&quot;, result)
+# Cálculo de la integral usando cuadratura Gauss-Legendre
+def integrar(a, b, N):
+    x, w = gaussxw(N)
+    xp, wp = gaussxwab(a, b, x, w)
+    return np.sum(wp * np.sin(xp**2))
+
+# Calcular la integral para diferentes valores de N
+valores_N = np.arange(2, 51)
+resultados = [integrar(0, np.pi, N) for N in valores_N]
+
+
+![Texto alternativo](Image/ICG.jpeg)
 </code></pre></div>
 
 
